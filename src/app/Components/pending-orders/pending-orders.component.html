@@ -1,0 +1,15 @@
+<div class="dashboard">
+    <h1>Pending Orders</h1>
+    <div *ngIf="pendingOrders.length === 0" class="empty-message">
+      No pending orders.
+    </div>
+    <div *ngFor="let order of pendingOrders" class="order-card">
+        <!-- @if(order.status=='Not Delievered'){ -->
+      <p><strong>Product Name:</strong> {{ order.productName }}</p>
+      <p><strong>Quantity:</strong> {{ order.orderedQuantity }}</p>
+      <p><strong>Price:</strong> ${{ order.itemPrice }}</p>
+      <p><strong>Status:</strong> {{ order.status }}</p>
+        <!-- } -->
+    </div>
+  </div>
+  

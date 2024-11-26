@@ -1,0 +1,42 @@
+<div class="order-container">
+    <h2>Orders Delivered</h2>
+    <table class="order-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Status</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody id="orderItems">
+        <tr *ngFor="let order of orders">
+            @if(order.status=='Delivered'){
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.productName }}</td>
+          <td>{{ order.orderedQuantity }}</td>
+          <td>{{ order.status }}</td>
+          <td>
+            <div class="tooltip-container">
+                <button (mouseenter)="showAddress(order.orderId)" (mouseleave)="hideAddress()" style="background-color: #5b5e5c;">Show Address</button>
+                <p class="tooltip" *ngIf="hoveredOrder=='True' ">
+                    Street: {{deliveryAddress.street}}<br>
+                    State: {{deliveryAddress.state}}<br>
+                    City: {{deliveryAddress.city}}<br>
+                    Zip Code: {{deliveryAddress.zipCode}}
+                </p>
+
+              </div>
+
+          </td>
+         
+        }
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+
+  

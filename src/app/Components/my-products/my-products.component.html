@@ -1,0 +1,40 @@
+<div class="my-products-container">
+    <h2>My Products</h2>
+  
+    <table *ngIf="products.length > 0; else noProducts" class="product-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td><img [src]="product.image" alt="{{ product.name }}" class="product-image"></td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.description }}</td>
+          <td>${{ product.price.toFixed(2) }}</td>
+          <td>{{ product.stock }}</td>
+          <td>{{ product.category }}</td>
+          <td>
+            <!-- <button (click)="viewDetails(product.productId)" class="action-button">View</button> -->
+            <button (click)="editProduct(product.productId)" class="action-button">Edit</button>
+            <button (click)="deleteProduct(product.productId)" class="action-button delete-button">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <ng-template #noProducts>
+      <p>No products found. Add new products to get started!</p>
+    </ng-template>
+  </div>
+
+
+  
+  

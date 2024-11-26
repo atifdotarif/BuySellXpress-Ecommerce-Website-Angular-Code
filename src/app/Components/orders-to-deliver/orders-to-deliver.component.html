@@ -1,0 +1,50 @@
+<div class="order-container">
+    <h2>Orders to Deliver</h2>
+    <table class="order-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Status</th>
+          <th>Address</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="orderItems">
+        <tr *ngFor="let order of orders">
+            <!-- @if(order.status=='Not Delievered' && order.sellerId==sellerId){ -->
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.productName }}</td>
+          <td>{{ order.orderedQuantity }}</td>
+          <td>{{ order.status }}</td>
+          <td>
+            <div class="tooltip-container">
+                <button (mouseenter)="showAddress(order.orderId)" (mouseleave)="hideAddress()" style="background-color: #5b5e5c;">Show Address</button>
+                <p class="tooltip" *ngIf="hoveredOrder=='True' ">
+                    Street: {{deliveryAddress.street}}<br>
+                    State: {{deliveryAddress.state}}<br>
+                    City: {{deliveryAddress.city}}<br>
+                    Zip Code: {{deliveryAddress.zipCode}}
+                </p>
+
+              </div>
+
+          </td>
+          <td>
+            <button
+              (click)="markAsDelivered(order.itemId, order.orderId, order.productId, order.orderedQuantity, order.itemPrice, order.status)"
+              [disabled]="order.status === 'Delivered'"
+            >
+              Mark as Delivered
+            </button>
+          </td>
+        <!-- } -->
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+
+  

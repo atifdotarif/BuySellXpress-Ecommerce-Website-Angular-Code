@@ -1,0 +1,21 @@
+<div class="login-page">
+ 
+    <div class="form">
+      <div class="logo">
+        BuySellXpress
+      </div>
+      <form class="login-form">
+       
+        <input #email="ngModel" type="text" required  [(ngModel)]="userObj.userName" autocomplete="current-password" name="email" placeholder="Email"/>
+        <input #password="ngModel" type="password" required  [(ngModel)]="userObj.password" autocomplete="current-password" name="password" placeholder="Password"/>
+        @if ((email.invalid && email.touched)) {
+            <p style="color: red;">Invalid Email</p>
+        }
+        @if ((password.invalid && password.touched)) {
+            <p style="color: red;">Invalid Password</p>
+        }
+        <button (click)="Login()">login</button>
+        <p class="message">Not registered? <button routerLink="/signup">Create an account</button></p>
+      </form>
+    </div>
+  </div>

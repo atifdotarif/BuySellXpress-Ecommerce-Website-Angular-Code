@@ -1,0 +1,86 @@
+   <!-- <div class="container">
+    <h1>Product List</h1>
+  
+    <div class="category-filter">
+      <label  for="category">Filter by Category:</label>
+        <select id="category" (change)="filterByCategory($event)">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+  
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <img [src]="product.image" alt="{{ product.name }}" class="product-image">
+      <div class="product-details">
+        <h2>{{ product.productName }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price.toFixed(2) }}</p>
+        <p>Stock: {{ product.stock }}</p>
+        <p>Category: {{ product.category }}</p>
+        <p>Discount: {{ product.discount ? product.discount + '%' : 'None' }}</p>
+        <p>Seller Name: {{product.sellerName}}</p>
+
+        <button (click)="addtoCart(product)">Add to Cart</button>
+      </div>
+    </div>
+  </div> -->
+  <div *ngIf="isLoading" class="spinner-container">
+    <div class="spinner"></div>
+  </div>
+  
+  <div *ngIf="!isLoading">
+    <div style="margin-top: 30px;" class="category-filter">
+      <label for="category">Filter by Category:</label>
+      <select id="category" (change)="filterByCategory($event)">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+      <!-- <button (click)="viewPreviousItems()" style="margin-left: 20px;">View Previously Ordered Items</button> -->
+
+    </div>
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <img [src]="product.image" alt="{{ product.name }}" class="product-image">
+      <div class="product-details">
+        <h2>{{ product.productName }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price.toFixed(2) }}</p>
+        <p>Stock: {{ product.stock }}</p>
+        <p>Category: {{ product.category }}</p>
+        <p>Discount: {{ product.discount ? product.discount + '%' : 'None' }}</p>
+        <p>Seller Name: {{ product.sellerName }}</p>
+  
+        <button (click)="addtoCart(product)">Add to Cart</button>
+        <button style="margin-left: 10px;" (click)="toggleReviewVisibility(product.productId)">
+          {{ visibleReviews[product.productId] ? 'Hide Reviews' : 'View/Add Reviews' }}
+        </button>
+  
+        <div *ngIf="visibleReviews[product.productId]" class="review-section">
+          <div class="reviews-section">
+            <h3>Reviews</h3>
+            <div *ngIf="reviews.length === 0">No reviews yet.</div>
+            <div *ngFor="let review of reviews" class="review">
+              <p><strong>Rating:</strong> {{ review.stars }}/5</p>
+              <p><strong>Comment:</strong> {{ review.comments }}</p>
+            </div>
+          </div>
+  
+          <div class="add-review">
+            <h3>Write a Review</h3>
+            <label>
+              Rating:
+              <select [(ngModel)]="newReview.stars">
+                <option value="0">Select</option>
+                <option *ngFor="let star of [1, 2, 3, 4, 5]" [value]="star">{{ star }}</option>
+              </select>
+            </label>
+            <textarea [(ngModel)]="newReview.comments" placeholder="Write your review"></textarea>
+            <button (click)="submitReview(product.productId)">Submit Review</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  

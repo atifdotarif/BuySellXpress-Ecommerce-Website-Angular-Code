@@ -1,0 +1,15 @@
+<div class="dashboard-container">
+    <h1 style="width: 80%; text-align: center;margin-top: 20px;">Welcome, {{ sellerName }}</h1>
+  
+    <div style="margin-top: 40px;" class="statistics">
+      <div class="stat">
+        <h2>Total Products Sold</h2>
+        <p>{{ statistics.totalProductsSold }}</p>
+      </div>
+      <div class="stat">
+        <h2>Total Earnings</h2>
+        <p>${{ statistics.totalEarnings.toFixed(2) }}</p>
+      </div>
+    </div>
+  </div>
+  

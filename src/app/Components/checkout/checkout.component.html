@@ -1,0 +1,64 @@
+<div style="margin-top: 20px;" class="checkout-container">
+  <h2>Checkout</h2>
+
+  <!-- Display cart items -->
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <p>{{ item.productName }} - {{ item.quantity }} x ${{ item.price }}</p>
+  </div>
+
+  <h3>Total: ${{ totalPrice }}</h3>
+
+  <!-- Shipping Address Form -->
+  <form (ngSubmit)="onSubmit()">
+    <label for="contactNumber">Contact Number:</label>
+    <input
+      type="text"
+      [(ngModel)]="checkoutData.contactNumber"
+      name="contactNumber"
+      required
+    />
+
+    <label for="street">Street:</label>
+    <input
+      type="text"
+      [(ngModel)]="checkoutData.street"
+      name="street"
+      required
+    />
+
+    <label for="city">City:</label>
+    <input
+      type="text"
+      [(ngModel)]="checkoutData.city"
+      name="city"
+      required
+    />
+
+    <label for="state">State:</label>
+    <input
+      type="text"
+      [(ngModel)]="checkoutData.state"
+      name="state"
+      required
+    />
+
+    <label for="zipCode">Zip Code:</label>
+    <input
+      type="text"
+      [(ngModel)]="checkoutData.zipCode"
+      name="zipCode"
+      required
+    />
+
+    <label for="payment">Payment Method:</label>
+    <select [(ngModel)]="checkoutData.paymentMethod" name="payment">
+      <option value="cod">Cash On Delivery</option>
+    </select>
+    
+    <button type="submit">Place Order</button>
+  </form>
+
+  <div *ngIf="orderSuccess" class="success-message">
+    <p>Order placed successfully!</p>
+  </div>
+</div>

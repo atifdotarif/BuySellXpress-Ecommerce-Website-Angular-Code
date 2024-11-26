@@ -1,0 +1,80 @@
+/* General Container Styles */
+.my-products-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #333;
+  }
+  
+  /* Table Styles */
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  thead {
+    background-color: #f4f4f4;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  td {
+    font-size: 16px;
+  }
+  
+  /* Product Image Styles */
+  .product-image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  
+  /* Action Buttons */
+  .action-button {
+    padding: 8px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Delete Button Style */
+  .delete-button {
+    background-color: #dc3545;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  /* No Products Found */
+  p {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+  }
+  

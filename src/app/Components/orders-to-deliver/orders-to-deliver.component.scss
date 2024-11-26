@@ -1,0 +1,86 @@
+.order-container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .order-table th, .order-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+  }
+  
+  .order-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .order-table td {
+    text-align: center;
+  }
+  
+  button {
+    padding: 6px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  .tooltip-container {
+    position: relative; /* Enables absolute positioning for tooltip */
+    display: inline-block;
+  }
+  
+  .tooltip {
+    font-size: 12px;
+    color: black;
+    visibility: hidden; /* Tooltip is hidden initially */
+    background-color:#007bff; /* Tooltip background color */
+    color: white; /* Tooltip text color */
+    text-align: center;
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px;
+    position: absolute; /* Positioned relative to the container */
+    top: 125%; /* Position below the button */
+    left: 50%; /* Center align horizontally */
+    transform: translateX(-50%); /* Adjust to center horizontally */
+    z-index: 1; /* Ensure it appears above other elements */
+    white-space: nowrap; /* Prevent line breaks */
+    opacity: 0; /* Fully transparent initially */
+    transition: opacity 0.3s ease; /* Smooth fade-in/out */
+  }
+  
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: 100%; /* Arrow appears above the tooltip */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent; /* Arrow pointing upwards */
+  }
+  
+  .tooltip-container:hover .tooltip,
+  .tooltip-container .tooltip[ng-reflect-ng-if='True'] {
+    visibility: visible; /* Show tooltip */
+    opacity: 1; /* Fully opaque */
+  }
+  
+  

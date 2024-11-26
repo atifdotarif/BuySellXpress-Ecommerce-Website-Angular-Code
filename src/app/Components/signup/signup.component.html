@@ -1,0 +1,36 @@
+<div class="login-page">
+    <div class="form">      
+      <form class="login-form">
+        <input #email="ngModel" type="text" required  [(ngModel)]="obj.email" name="email" placeholder="Email"/>
+        <input #name="ngModel" type="text" required  [(ngModel)]="obj.name" name="name" placeholder="Name"/>
+        <input #password="ngModel" type="password" [(ngModel)]="obj.password" name="password"  placeholder="Password" required/>
+        <input #address="ngModel" type="text" required  [(ngModel)]="obj.address" name="address" placeholder="Address"/>
+        <div style="display: flex; justify-content: center; align-items: center;width: 70%;">
+            <label>Role: </label><br>
+            <input style="margin-top: 8px;" #role="ngModel" type="radio" [(ngModel)]="obj.role" value="Seller" name="role"  placeholder="" required/>
+          <label for="seller" >Seller</label>
+          <input style="margin-top: 8px;" #role="ngModel" type="radio" [(ngModel)]="obj.role" value="Buyer" name="role"  placeholder="" required/>
+            <label for="buyer" >Buyer</label>
+
+        </div>
+        <!-- @if (!empty) {
+            <p style="color: red;">Empty Fields!</p>
+        } -->
+        @if ((email.invalid && email.touched)) {
+            <p style="color: red;">Invalid Email</p>
+        }
+        @if ((password.invalid && password.touched)) {
+            <p style="color: red;">Invalid Password</p>
+        }
+  <div>
+    <label>Select Profile Picture</label>
+    <!-- File input for image selection -->
+    <input type="file" (change)="onImageSelected($event)" accept="image/*">
+    <!-- Image preview -->
+    <!-- <img *ngIf="imageUrl" [src]="imageUrl" alt="Image Preview" style="width: 300px; height: 300px; object-fit: cover; margin-top: 10px; border: 2px solid #ddd;"> -->
+  </div>
+        <button (click)="SignUp()">SignUp</button>
+        
+      </form>
+    </div>
+  </div>

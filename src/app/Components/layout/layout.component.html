@@ -1,0 +1,119 @@
+    <!-- <ul style="width:50%; display: flex; justify-content: center;" class="nav navbar-nav">
+        <li class="nav-item" *ngFor="let item of filteredMenus">
+            <a id="anchor" class="nav-link text-white" [routerLink]="item.path" >{{item.text}}</a>
+        </li>
+      </ul> -->
+ 
+ <!-- <nav class="navbar navbar-inverse" id="navbarmain">
+    <div  class="container-fluid">
+      <div class="navbar-header">
+        <a id="anchor">BuySellXpress</a>
+      </div>
+     <a id="anchor" class="nav-link text-white" >logged in as: {{User.name}} | {{role}}</a>
+     <a id="anchor"class="nav-link text-white" (click)="Logout()">Logout</a>
+    </div>
+  </nav>
+  
+   <nav style="padding: 0;margin: 0;background-color: #007bff;" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">BuySellXpress</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul> 
+       <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav> -->
+<div class="main-nav" >
+ <a routerLink="/layout"> <strong href="" class="title">BuySellXpress</strong></a>
+  
+  <div class="dropdown">
+    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+      <img [src]="User.image" alt="" width="32" height="32" class="rounded-circle me-2">
+
+      <strong  style="color: rgb(248, 249, 250);letter-spacing: 1.5px;">{{User.name}}</strong>
+    </a>
+    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+      <li><a class="dropdown-item" href="">New project...</a></li>
+      <li><a class="dropdown-item" href="">Settings</a></li>
+      <li><a class="dropdown-item" href="">Profile</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="" (click)="Logout()">Sign out</a></li>
+    </ul>
+  </div>
+</div>
+
+  <div class="marquee">
+    <p>Fast and free shipping on all orders. Shop your favorite items now!</p>
+  </div>
+
+
+  <div class="layout">
+    <div class="sidebar-main">
+      <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style=" width: 90%;">
+        <!-- <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4"></span>
+        </a>
+        <hr> -->
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item" *ngFor="let item of filteredMenus">
+            <a style="font-size: 12px; padding-left: 10px;" class="nav-link" [routerLinkActive]="'active'" [routerLink]="item.path">{{ item.text }}</a>
+          </li>
+        </ul>
+        
+        <hr>
+        <ul  class="nav nav-pills flex-column mb-auto">
+           <li class="nav-item"><a style="font-size: 12px; padding-left: 10px;" class="nav-link" (click)="Logout()">Sign out</a></li>
+        </ul>
+        <!-- <div class="dropdown">
+          <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://static.vecteezy.com/system/resources/previews/009/397/835/non_2x/man-avatar-clipart-illustration-free-png.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>{{User.name}}</strong>
+          </a>
+          <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2"> -->
+            <!-- <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li> -->
+            <!-- <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="Logout()">Sign out</a></li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+    <div class="page">
+      <router-outlet></router-outlet>
+  
+    </div>
+  </div>
+  <!-- <div class="footer">
+
+  </div> -->
+  
+
+  

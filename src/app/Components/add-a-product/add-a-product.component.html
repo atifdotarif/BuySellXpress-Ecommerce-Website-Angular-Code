@@ -1,0 +1,55 @@
+
+<div class="container">
+    <h1>Product Information</h1>
+    <form (ngSubmit)="onSubmit()">
+        <!-- <div class="form-group"> -->
+            <!-- <label for="id">ID:</label> -->
+            <!-- <input type="text" id="id" [(ngModel)]="product.id" name="id" required> -->
+        <!-- </div> -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" [(ngModel)]="product.name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" [(ngModel)]="product.description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" id="price" [(ngModel)]="product.price" name="price" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" [(ngModel)]="product.stock" name="stock" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category:</label>
+              <!-- <select type="text" id="category" [(ngModel)]="product.category" required>
+                <option>Select Category</option>
+                @for (item of categories; track $index) {
+                  <option [value]="item">{{ item }}</option>
+                }
+              </select> -->
+              <select name="category" id="category" [(ngModel)]="product.category" required>
+                <option value="">Select Category</option>
+                <option *ngFor="let item of categories" [value]="item">{{ item }}</option>
+              </select>
+           
+        </div>
+        <div class="form-group">
+            <label for="image">Image URL:</label>
+            <input type="url" id="image" [(ngModel)]="product.image" name="image">
+            <div>
+                <label>OR</label>
+                <input type="file" (change)="onImageSelected($event)" accept="image/*">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="discount">Discount (%):</label>
+            <input type="number" id="discount" [(ngModel)]="product.discount" name="discount" step="0.01">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<script src="main.js"></script>
+

@@ -1,0 +1,59 @@
+<div class="order-history-container">
+    <h2>All Order Histories (Filtered by Delivered)</h2>
+  
+    <div class="spinner" *ngIf="isLoading"></div>
+  
+    <div class="error" *ngIf="errorMessage">
+      <p>{{ errorMessage }}</p>
+    </div>
+  
+    <table *ngIf="!isLoading && deliveredOrderHistories.length > 0">
+      <thead>
+        <tr>
+          <th>History ID</th>
+          <th>Order ID</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of deliveredOrderHistories">
+          <td>{{ order.historyId }}</td>
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="!isLoading && deliveredOrderHistories.length === 0" class="no-data">
+      No delivered order histories found.
+    </p>
+  </div>
+  
+  <div class="order-history-container">
+    <h2>All Order Histories (Filtered by Shipped)</h2>
+  
+    <div class="spinner" *ngIf="isLoading"></div>
+  
+    <div class="error" *ngIf="errorMessage">
+      <p>{{ errorMessage }}</p>
+    </div>
+  
+    <table *ngIf="!isLoading && ShippedOrders.length > 0">
+      <thead>
+        <tr>
+          <th>History ID</th>
+          <th>Order ID</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of ShippedOrders">
+          <td>{{ order.historyId }}</td>
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="!isLoading && deliveredOrderHistories.length === 0" class="no-data">
+      No delivered order histories found.
+    </p>
+  </div>
